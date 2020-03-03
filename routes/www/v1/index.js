@@ -13,6 +13,7 @@ const auth = require('../../../middlewares/auth')
 const authCtrl   = require('../../../controllers/auth')
 const userCtrl   = require('../../../controllers/user')
 const hotelsCtrl = require('../../../controllers/hotels')
+const contactCtrl = require('../../../controllers/contact')
 
 /*
 * Routes for Auth
@@ -37,6 +38,10 @@ API.get('/user/hello/:name', auth, userCtrl.hello)
 
 API.get('/hotels', hotelsCtrl.index)
 API.post('/hotels', hotelsCtrl.store)
+
+API.post('/registraduria', contactCtrl.registraduria)
+API.post('/policia', contactCtrl.policia)
+API.post('/addi', contactCtrl.addi)
 
 API.use(function(req, res, next) {
     return res.status(404).send({ msg: 'Route'+req.url+' Not found.' })
