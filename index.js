@@ -15,7 +15,7 @@ MONGOOSE.connect(CONFIG.DB, { useNewUrlParser: true }, (err,res) => {
     if(err) throw err
     console.log('Connection to DataBase ON.')
 
-    APP.listen(CONFIG.PORT, ()=>{
+    APP.listen(CONFIG.PORT,asd ()=>{
         console.log(`API REST Runing: ${CONFIG.PORT}`)
     })
     
