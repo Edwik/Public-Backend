@@ -40,6 +40,8 @@ APP.get('/', (req,res) =>{
     res.status(200).send({msg: 'Hello Coder! Welcome to Api by Edwin Anaya.'})
 })
 
+APP.use(response);
+
 APP.use(function(req, res, next) {
     return res.status(404).send({ msg: `Route ${req.url} Not Found.`})
 });

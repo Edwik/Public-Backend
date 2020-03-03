@@ -5,23 +5,21 @@
  * Url: https://documentation.com/
  */
 
-const MODEL = require('../models/user')
+
 const SERVICE = require('../services')
+const service_wrapper = require('../../tools/service_wrapper')
+const model = require('./model')
 
 function signUp (req, res) {
 
-    if (!req.body.email || !req.body.password || !req.body.displayName) return res.status(403).send({msg: 'Missing parameters.'})
+    let opts = req.body;
 
-    err_handler(MODEL.findOne, { email: req.body.email}, next);
+    service_wrapper(MODEL.findOne, { email: req.body.email}, next);
 
+    
     MODEL.findOne({ email: req.body.email}, (err, user) => {
 
-        const userRequest = new MODEL({
-            email:       req.body.email,
-            displayName: req.body.displayName,
-            password:    req.body.password
-        })
-
+        const userRequest = new MODEL(opts);
 
         userRequest.save((err)=>{
 

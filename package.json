@@ -4,6 +4,7 @@
   "description": "Public Backend",
   "main": "index.js",
   "scripts": {
+    "build": "node index.js",
     "start": "node index.js",
     "serve": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,6 +12,7 @@
   "author": "Edwin Anaya",
   "license": "MIT",
   "dependencies": {
+    "@hapi/joi": "^17.1.0",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "1.18.3",
     "cors": "2.8.5",
